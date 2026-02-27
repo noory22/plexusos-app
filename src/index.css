@@ -1,42 +1,40 @@
 @import "tailwindcss";
 
-/* @layer base {
-  :root {
-    color-scheme: light dark;
-  }
+/* Allow manual dark mode toggling via the `.dark` class (Tailwind CSS v4) */
+@custom-variant dark (&:where(.dark, .dark *));
 
-  body {
-    @apply bg-slate-50 text-slate-900 transition-colors duration-300 antialiased;
-    font-family: 'Outfit', 'DM Sans', system-ui, -apple-system, sans-serif;
-  }
+:root {
+  color-scheme: light dark;
+  font-family: 'Outfit', 'DM Sans', system-ui, -apple-system, sans-serif;
+}
 
-  .dark body {
-    @apply bg-[#080E1C] text-slate-50;
-  }
+/* Premium Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
 
-  /* Custom Scrollbar for a premium feel */
-/* ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: #e2e8f0;
+  /* slate-200 */
+  border-radius: 9999px;
+}
 
-  ::-webkit-scrollbar-thumb {
-    @apply bg-slate-200 rounded-full;
-  }
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(51, 65, 85, 0.5);
+  /* slate-700 at 50% */
+}
 
-  .dark ::-webkit-scrollbar-thumb {
-    @apply bg-slate-700/50;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background-color: #cbd5e1;
+  /* slate-300 */
+}
 
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-slate-300;
-  }
-
-  .dark ::-webkit-scrollbar-thumb:hover {
-    @apply bg-slate-600;
-  }
-/* } */
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #475569;
+  /* slate-600 */
+}
